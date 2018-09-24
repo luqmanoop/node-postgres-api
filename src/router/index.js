@@ -14,7 +14,7 @@ router
 router
   .route('/authors/:id')
   .get((req, res) => res.json({ msg: 'TODO. Author get' }))
-  .update((req, res) => res.json({ msg: 'TODO. Author update' }))
+  .put((req, res) => res.json({ msg: 'TODO. Author update' }))
   .delete((req, res) => res.json({ msg: 'TODO. Author delete' }));
 router.route('/authors/:id/posts').get((req, res) => res.json({ msg: 'TODO. Author posts' }));
 
@@ -26,7 +26,7 @@ router
 router
   .route('/posts/:id')
   .get((req, res) => res.json({ msg: 'TODO. Author get' }))
-  .update((req, res) => res.json({ msg: 'TODO. Author update' }))
+  .put((req, res) => res.json({ msg: 'TODO. Author update' }))
   .delete((req, res) => res.json({ msg: 'TODO. Author delete' }));
 
 export default router;
