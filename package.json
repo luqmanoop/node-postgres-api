@@ -5,6 +5,13 @@
   "repository": "git@github.com:codeshifu/node-postgre-api.git",
   "author": "Olushi Luqman Opemipo <olushilukmon03@gmail.com> (https://codeshifu.github.io/)",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist/server.js",
+    "dev:build": "nodemon -L src --exec babel --presets env -w src/ --out-dir dist/",
+    "dev:watch": "nodemon -L dist/server.js",
+    "dev": "npm-run-all --parallel 'dev:build' 'dev:watch'"
+  },
   "dependencies": {
     "body-parser": "1.18.3",
     "cors": "2.8.4",
