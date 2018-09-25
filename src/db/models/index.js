@@ -5,7 +5,10 @@ export default async (client) => {
   try {
     await client.query(authors.CREATE_TABLE);
     await client.query(posts.CREATE_TABLE);
-    console.log('initialized models');
+    console.log(`
+    ----------------------
+    | Initialized models |
+    ----------------------`);
   } catch (error) {
     console.log(error);
   }
