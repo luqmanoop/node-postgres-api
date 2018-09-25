@@ -1,6 +1,7 @@
 import express from 'express';
 import registerMiddlewares from './middlewares';
 import apiRouter from './router';
+import './db';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
