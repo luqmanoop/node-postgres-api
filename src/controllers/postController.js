@@ -60,4 +60,22 @@ export default class PostController {
       .then(() => res.status(203).send())
       .catch(({ message }) => res.status(500).send({ message }));
   }
+
+  static update(req, res) {
+    const { title, content } = req.body || {};
+
+    if (!title || !content) {
+      res.status(400).send({ message: 'Post title and content are required.' });
+      return;
+    }
+
+    db.query(`UPDATE ${TABLE} SET title = $1, content = $2, updated_at = NOW() WHERE id = $3`, [
+      title,
+      content,
+      req.postId,
+    ])
+      .then(() => res.send())
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
+
 }
