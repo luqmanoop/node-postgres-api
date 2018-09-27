@@ -43,5 +43,10 @@ export default class AuthorController {
       .then(() => res.status(201).send())
       .catch(({ message }) => res.status(500).send({ message }));
   }
+
+  static remove(req, res) {
+    db.query('DELETE FROM authors where id = $1', [req.authorId])
+      .then(() => res.status(203).send())
+      .catch(({ message }) => res.status(500).send({ message }));
   }
 }
