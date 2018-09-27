@@ -55,4 +55,9 @@ export default class PostController {
       .catch(({ message }) => res.status(500).send({ message }));
   }
 
+  static remove(req, res) {
+    db.query(`DELETE FROM ${TABLE} WHERE id = $1`, [req.postId])
+      .then(() => res.status(203).send())
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
 }
