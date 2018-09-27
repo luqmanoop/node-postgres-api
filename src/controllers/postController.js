@@ -14,7 +14,7 @@ export default class PostController {
       .then(({ rows }) => {
         if (rows[0].count <= 0) return res.status(404).send({ message: `Post with ID "${id}" not found.` });
 
-        // put the author id on request object
+        // put the post id on request object
         req.postId = id;
         return next();
       })
