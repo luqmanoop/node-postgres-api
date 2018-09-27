@@ -29,20 +29,22 @@ Visit http://localhost:8000/api/v1
 ### Available endpoints
 
 `/api/v1/authors`
-| method | route | description |
+
+| method | route              | description          |
 | ------ | ------------------ | -------------------- |
-| GET | /authors | Get authors |
-| POST | /authors | Create author |
-| GET | /authors/:id | Get author by ID |
-| GET | /authors/:id/posts | Get posts by author |
-| PUT | /authors/:id | Update author |
-| DELETE | /authors/:id | Delete/remove author |
+| GET    | /authors           | Get authors          |
+| POST   | /authors           | Create author        |
+| GET    | /authors/:id       | Get author by ID     |
+| GET    | /authors/:id/posts | Get posts by author  |
+| PUT    | /authors/:id       | Update author        |
+| DELETE | /authors/:id       | Delete/remove author |
 
 `/api/v1/posts`
-| method | route | description |
-| ------ | ------------------ | -------------------- |
-| GET | /posts | Get posts |
-| POST | /posts | Create post |
-| GET | /posts/:id | Get posts by ID |
-| PUT | /posts/:id | Update author |
+
+| method | route      | description          |
+| ------ | ---------- | -------------------- |
+| GET    | /posts     | Get posts            |
+| POST   | /posts     | Create post          |
+| GET    | /posts/:id | Get posts by ID      |
+| PUT    | /posts/:id | Update author        |
 | DELETE | /posts/:id | Delete/remove author |
