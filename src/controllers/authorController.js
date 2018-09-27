@@ -26,7 +26,7 @@ export default class AuthorController {
   static get(req, res) {
     db.query('SELECT id, name FROM authors')
       .then(result => res.send(result.rows))
-      .catch(err => res.status(500).send({ message: err.message }));
+      .catch(({ message }) => res.status(500).send({ message }));
   }
 
   /**
@@ -41,6 +41,7 @@ export default class AuthorController {
 
     db.query('INSERT INTO authors (name) VALUES ($1)', [name])
       .then(() => res.status(201).send())
-      .catch(err => res.status(500).send({ message: err.message }));
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
   }
 }
