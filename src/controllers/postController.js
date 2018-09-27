@@ -78,4 +78,9 @@ export default class PostController {
       .catch(({ message }) => res.status(500).send({ message }));
   }
 
+  static getPost(req, res) {
+    db.query(`SELECT * FROM ${TABLE} WHERE id = $1`, [req.postId])
+      .then(result => res.send(result.rows[0]))
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
 }
