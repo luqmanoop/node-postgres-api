@@ -20,4 +20,14 @@ export default class PostController {
       })
       .catch(({ message }) => res.status(500).send({ message }));
   }
+
+  /**
+   * Get posts from database.
+   */
+  static get(req, res) {
+    db.query(`SELECT * FROM ${TABLE}`)
+      .then(result => res.send(result.rows))
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
+
 }
