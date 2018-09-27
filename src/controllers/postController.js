@@ -30,4 +30,29 @@ export default class PostController {
       .catch(({ message }) => res.status(500).send({ message }));
   }
 
+  /**
+   * Creates a post in DB.
+   */
+  static create(req, res) {
+    const { author_id: authorId, title, content } = req.body || {};
+
+    if (!authorId) {
+      res.status(400).send({ message: 'Please provide post author ID.' });
+      return;
+    }
+
+    if (!title || !content) {
+      res.status(400).send({ message: 'Post title and content are required.' });
+      return;
+    }
+
+    db.query(`INSERT INTO ${TABLE} (author_id, title, content) VALUES ($1, $2, $3)`, [
+      authorId,
+      title,
+      content,
+    ])
+      .then(() => res.status(201).send())
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
+
 }
