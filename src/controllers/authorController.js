@@ -68,4 +68,13 @@ export default class AuthorController {
       .then(result => res.send(result.rows[0]))
       .catch(({ message }) => res.status(500).send({ message }));
   }
+
+  static getPosts(req, res) {
+    db.query(
+      'SELECT name, title, content, created_at FROM authors JOIN posts ON authors.id = posts.author_id WHERE authors.id = $1',
+      [req.authorId],
+    )
+      .then(result => res.send(result.rows))
+      .catch(({ message }) => res.status(500).send(message));
+  }
 }
