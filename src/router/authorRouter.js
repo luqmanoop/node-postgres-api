@@ -17,6 +17,6 @@ router
   .put(AuthorController.update)
   .delete(AuthorController.remove);
 
-router.route('/authors/:id/posts').get((req, res) => res.json({ msg: 'TODO. Author posts' }));
+router.route('/authors/:id/posts').get(AuthorController.getPosts);
 
 export default router;
