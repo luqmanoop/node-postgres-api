@@ -63,4 +63,9 @@ export default class AuthorController {
       .catch(({ message }) => res.status(500).send({ message }));
   }
 
+  static getAuthor(req, res) {
+    db.query('SELECT * FROM authors WHERE id = $1', [req.authorId])
+      .then(result => res.send(result.rows[0]))
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
 }
