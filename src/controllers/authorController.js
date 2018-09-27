@@ -49,4 +49,18 @@ export default class AuthorController {
       .then(() => res.status(203).send())
       .catch(({ message }) => res.status(500).send({ message }));
   }
+
+  static update(req, res) {
+    const { name } = req.body || {};
+
+    if (!name) {
+      res.status(400).send({ message: 'Please provide new name for author.' });
+      return;
+    }
+
+    db.query('UPDATE authors SET name = $1 WHERE id = $2', [name, req.authorId])
+      .then(() => res.send())
+      .catch(({ message }) => res.status(500).send({ message }));
+  }
+
 }
