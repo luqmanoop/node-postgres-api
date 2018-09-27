@@ -8,13 +8,13 @@ router.param('id', PostController.findById);
 // api/v1/posts
 router
   .route('/posts')
-  .get((req, res) => res.json({ msg: 'TODO. Post list' }))
-  .post((req, res) => res.json({ msg: 'TODO. Post create' }));
+  .get(PostController.get)
+  .post(PostController.create);
 
 router
   .route('/posts/:id')
-  .get((req, res) => res.json({ msg: 'TODO. Author get' }))
-  .put((req, res) => res.json({ msg: 'TODO. Author update' }))
-  .delete((req, res) => res.json({ msg: 'TODO. Author delete' }));
+  .get(PostController.getPost)
+  .put(PostController.update)
+  .delete(PostController.remove);
 
 export default router;
